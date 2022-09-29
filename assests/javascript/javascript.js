@@ -38,20 +38,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function activateButton(newMode) {
+        console.log(currentMode, newMode)
         if (currentMode === "random") {
-            randomMode.classList.remove("test")
+            randomMode.classList.remove("active")
         } else if (currentMode === "color") {
-            colorMode.classList.remove("test")
+            colorMode.classList.remove("active")
         } else if (currentMode === "erase") {
-            eraseMode.classList.remove("test")
+            eraseMode.classList.remove("active")
         }
 
         if (newMode === "random") {
-            randomMode.classList.add("test")
-        } else if (newMode == "color") {
-            colorMode.classList.add("test")
-        } else if (currentMode === "erase") {
-            eraseMode.classList.add("test")
+            randomMode.classList.add("active")
+        } else if (newMode === "color") {
+            colorMode.classList.add("active")
+        } else if (newMode === "erase") {
+            eraseMode.classList.add("active")
         }
     }
 
@@ -71,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function makeBoard() {
-        
+
         for (let i = 0; i < currentSize; i++) {
             let row = document.createElement("div");
             setAttributes(row, {"class" : `row${String(i+1)}`, "id" : "row"})
